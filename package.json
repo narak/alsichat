@@ -1,0 +1,23 @@
+{
+  "name": "alsichat",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.0rc2",
+    "ejs": "*",
+    "stylus": "*",
+    "mongojs": "0.4.3",
+    "socket.io": "0.9.10"
+  },
+  "description": "chat app on node.",
+  "main": "app.js",
+  "devDependencies": {},
+  "keywords": [
+    "chat"
+  ],
+  "author": "karansheth@gmail.com",
+  "license": "BSD"
+}

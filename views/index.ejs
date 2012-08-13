@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= appName %></title>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="/js/constants.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/js/socket.js"></script>
+</head>
+<body>
+<div class="container small" id="login-container">
+  <h1>Hello!</h1>
+  <div class="highlight" id="your-email-input">
+      <input type="text" name="email" placeholder="your email please..." />
+  </div>
+  <div class="highlight nodisplay" id="target-email-input">
+      <input type="text" name="email" placeholder="target email please..." />
+  </div>
+  <div class="nodisplay" id="error-msg"></div>
+</div>
+
+<div class="container small nodisplay" id="chat-container">
+  <h2><%= appName %></h2>
+  <div id="chat-box"></div>
+  <div class="highlight dark" id="chat-input">
+      <input type="text" name="message" placeholder="message please..." />
+  </div>
+</div>
+
+</body>
+</html>

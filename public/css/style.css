@@ -1,0 +1,50 @@
+body {
+  padding: 50px;
+  font: 14px Tahoma, Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+a {
+  color: #00b7ff;
+}
+h1,
+h2,
+h3 {
+  margin: 1em 0.2em 0.2em;
+}
+input,
+textarea {
+  border: 0;
+  outline: 0;
+  font-size: 1em;
+  margin: 10px;
+  padding: 10px;
+  color: #555;
+  width: 500px;
+  border-radius: 2px;
+}
+div.container {
+  margin: auto;
+  width: 940px;
+}
+div.container.small {
+  width: 540px;
+}
+.highlight {
+  background-color: #ddd;
+  border-radius: 3px;
+}
+.highlight.dark {
+  background-color: #333;
+}
+.nodisplay {
+  display: none;
+}
+#error-msg {
+  padding: 0.5em;
+}
+#chat-box {
+  border: 1px solid #ddd;
+  padding: 10;
+  height: 300px;
+}
