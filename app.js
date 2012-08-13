@@ -40,7 +40,12 @@ server.listen(app.get('port'), function(){
  * Socket IO
  */
 var socket = io.listen(server);
-socket.set('log level', 1);
+socket.configure(function () { 
+  socket.set("transports", ["xhr-polling"]); 
+  socket.set("polling duration", 10); 
+  socket.set('log level', 1);
+});
+
 
 socket.on('connection', function(socket) {
 	socket.on('user join', function(email, fn) {
