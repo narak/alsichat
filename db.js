@@ -1,6 +1,7 @@
 var databaseUrl = "alsichat";
 var collections = ['users', 'messages'];
-var db = require('mongojs').connect(databaseUrl, collections);
+console.log(process.env.MONGOHQ_URL);
+var db = require('mongojs').connect(process.env.MONGOHQ_URL || databaseUrl, collections);
 
 exports.add_message = function(message, next, failed) {
   db.messages.save(message, function(err, saved) {
