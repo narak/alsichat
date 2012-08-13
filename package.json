@@ -13,7 +13,7 @@
   },
   "bundledDependencies": {
     "socket.io": "*"
-  }
+  },
   "description": "chat app on node.",
   "main": "app.js",
   "devDependencies": {},
