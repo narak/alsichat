@@ -7,7 +7,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , io = require('socket.io')
-  , db = require('./db');
+  , db = require('./db')
+  , sock = require('./socket');
 
 var app = express();
 
@@ -47,56 +48,4 @@ socket.configure(function () {
 });
 
 
-socket.on('connection', function(socket) {
-	socket.on('user join', function(email, fn) {
-    if (email != '') {
-      db.join_user(email, function() {
-        console.log(email + ' has joined.');
-        socket.broadcast.emit('user connected', email);
-        socket.set('email', email, function() {
-          fn(true);
-        });
-      }, function() {
-        fn(false);
-      });
-    } else {
-      fn(false);
-    }
-	});
-
-  socket.on('chat', function(message, fn) {
-    if (message != '') {
-      socket.get('email', function(err, email) {
-        if (!err) {
-          var messageObj = {
-            status: 'success',
-            email: email,
-            message: message,
-            time: new Date().getTime()
-          }
-          db.add_message(messageObj, function() {
-              socket.broadcast.emit('chat', messageObj);
-              fn(messageObj); //goes back to calling socket
-            }, function() {
-              fn('Error saving chat.');
-            }
-          );
-        } else {
-          fn('Error retrieving logged in email. Please relogin.');
-        }
-      });
-    }
-  });
-
-  socket.on('disconnect', function() {
-    socket.get('email', function(err, email) {
-      if (!err) {
-        console.log(email + ' has left.');
-        socket.broadcast.emit('user disconnected', email);
-      } else {
-        console.log('unknown has left.');
-        socket.broadcast.emit('user disconnected', 'unknown');
-      }
-    });
-  })
-});
+socket.on('connection', sock.doSocket);

@@ -9,10 +9,8 @@
     "express": "3.0.0rc2",
     "ejs": "*",
     "stylus": "*",
-    "mongojs": "0.4.3"
-  },
-  "bundledDependencies": {
-    "socket.io": "*"
+    "mongojs": "0.4.3",
+    "socket.io": "0.9.6"
   },
   "description": "chat app on node.",
   "main": "app.js",
