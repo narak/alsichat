@@ -88,6 +88,7 @@ function showError(errorMsg) {
 
 function addChat(msg) {
   $chatBox.append(msg + '<br />');
+  $chatBox.scrollTop($chatBox[0].scrollHeight);
 }
 
 function formatMessage(message) {

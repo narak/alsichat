@@ -47,4 +47,5 @@ div.container.small {
   border: 1px solid #ddd;
   padding: 10;
   height: 300px;
+  overflow-y: scroll;
 }
