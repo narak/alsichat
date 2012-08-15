@@ -1,5 +1,3 @@
-
-
 $(function() {
   regExs = {};
   regExs.email = /^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -15,7 +13,7 @@ $(function() {
   $chatInput = $('#chat-input');
 
   $yourEmail.keypress(function(e) {
-    $errorMsg.fadeOut();n
+    $errorMsg.fadeOut();
     if (e.charCode == 13) {
       var $this = $(this);
       var $input =  $this.find('>input');

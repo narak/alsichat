@@ -1,6 +1,6 @@
 var databaseUrl = "alsichat";
 var collections = ['users', 'messages'];
-console.log(process.env.MONGOHQ_URL); 
+// process.env.MONGOHQ_URL: environment variable set by heroku for mongo addon instance.
 var db = require('mongojs').connect(process.env.MONGOHQ_URL || databaseUrl, collections);
 
 exports.add_message = function(message, next, failed) {
@@ -8,7 +8,7 @@ exports.add_message = function(message, next, failed) {
     if (err || !saved) {
       failed();
     } else {
-      console.log(message);
+      console.log(new Date(message.time).toString() + ' ' + message.email + ': ' + message.message);
       next();
     }
   });
@@ -45,24 +45,3 @@ exports.join_user = function(email, next, failed) {
     }
   });  
 }
-
-
-
-/*
-db.users.find({sex: "female"}, function(err, users) {
-  if( err || !users) console.log("No female users found");
-  else users.forEach( function(femaleUser) {
-    console.log(femaleUser);
-  } );
-});
-
-db.users.save({email: "srirangan@gmail.com", password: "iLoveMongo", sex: "male"}, function(err, saved) {
-  if( err || !saved ) console.log("User not saved");
-  else console.log("User saved");
-});
-
-db.users.update({email: "srirangan@gmail.com"}, {$set: {password: "iReallyLoveMongo"}}, function(err, updated) {
-  if( err || !updated ) console.log("User not updated");
-  else console.log("User updated");
-});
-*/

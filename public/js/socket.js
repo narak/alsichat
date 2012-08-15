@@ -6,6 +6,8 @@ $(function() {
     socket.emit('user join', yourEmail, function (data) {
       next(data);
     });
+
+    // Event bindings.
     socket.on('user connected', function(email) {
       addChat(email + ' ' + userMsgs.hasJoinedChat);
     });

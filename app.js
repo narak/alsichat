@@ -7,7 +7,6 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , io = require('socket.io')
-  , db = require('./db')
   , sock = require('./socket');
 
 var app = express();
